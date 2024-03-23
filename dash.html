@@ -11,6 +11,54 @@
 </head>
 <body>
 
+     <!-- Dashboard Section -->
+  <div class="dashboard">
+    <div id="cardContainer" class="card-container">
+      <!-- Cards will be populated here -->
+    </div>
+  </div>
+  
+  <!-- Modal for card details -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="cardDetails" class="card-details">
+        <!-- Card details will be displayed here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Card Form Modal -->
+  <div id="addCardModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Add New Card</h2>
+      <form id="addCardForm">
+        <label for="cardTitle">Title:</label>
+        <input type="text" id="cardTitle" name="cardTitle" required>
+        <label for="cardDescription">Description:</label>
+        <textarea id="cardDescription" name="cardDescription" required></textarea>
+        <button type="submit">Add Card</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Update Card Form Modal -->
+  <div id="updateCardModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Update Card</h2>
+      <form id="updateCardForm">
+        <label for="updateCardTitle">Title:</label>
+        <input type="text" id="updateCardTitle" name="updateCardTitle" required>
+        <label for="updateCardDescription">Description:</label>
+        <textarea id="updateCardDescription" name="updateCardDescription" required></textarea>
+        <input type="hidden" id="updateCardId" name="updateCardId">
+        <button type="submit">Update Card</button>
+      </form>
+    </div>
+  </div>
+
   <nav class="navbar">
     <div class="logo_item">
       <img src="image.png" alt="">
@@ -23,7 +71,6 @@
   <nav class="sidebar">
     <div class="menu_content">
       <ul class="menu_items">
-     
         <li class="item">
           <a href="#" class="nav_link" id="project">
             <span class="navlink_icon">
@@ -55,7 +102,7 @@
             </span>
             <span class="navlink">Intro to Nucleo</span>
           </a>
-       
+        </li>
         <li class="bottom_content">
           <a href="#" class="nav_link">
             <span class="navlink_icon">
@@ -75,40 +122,20 @@
             <span class="navlink_icon">
               <i class='bx bx-log-out'></i>
               <span class="navlink">Collapse</span>
+            </span>
           </div>
         </div>
-      </div>
-    </nav>
- 
-    <div class="project-container">
-     
-      <div class="project-box">Default Project</div>
-  
+      </ul>
     </div>
+  </nav>
+  
+  <div class="project-container">
+    <div class="project-box">Default Project</div>
+  </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        const newProjectLink = document.getElementById("project");
-        const projectContainer = document.querySelector(".project-container");
-        const collapseSidebar = document.getElementById("collapseSidebar");
-        const sidebar = document.querySelector(".sidebar");
+  <!-- Add Card Button -->
+  <button id="addCardBtn" class="add-card-btn">Add Card</button>
 
-        newProjectLink.addEventListener("click", function(event) {
-            event.preventDefault();
-            const projectName = prompt("Enter project name:");
-            if (projectName) {
-              const projectBox = document.createElement("div");
-              projectBox.classList.add("project-box");
-              projectBox.textContent = projectName;
-              projectContainer.appendChild(projectBox);
-            }
-          });
-
-        collapseSidebar.addEventListener("click", function() {
-            sidebar.classList.toggle("collapsed");
-          });
-        });
-      </script>
-  </body>
-  </html>
-
+  <script src="dash.js"></script>
+</body>
+</html>
